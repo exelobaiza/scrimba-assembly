@@ -54,3 +54,18 @@ header > p {
   border-radius: 4px;
   padding: 6px;
 }
+
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-direction: row;
+  max-width: 400px;
+  border: 1px solid red;
+  justify-content: center;
+}
+
+.chip-language {
+  border-radius: 1px;
+  padding: 4px;
+}

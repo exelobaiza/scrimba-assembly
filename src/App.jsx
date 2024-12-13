@@ -1,4 +1,8 @@
+import { languages } from "./languages"
 function App() {
+
+const languageElements = languages.map(lang => <span className="chip-language" style={{backgroundColor:lang.backgroundColor, color:lang.color} }  >{lang.name}</span>)
+
   return (
     <div>
       <div className="container">
@@ -11,6 +15,9 @@ function App() {
           <h2>You win!</h2>
           <p>Well done! 🎉</p>
         </div>
+      </section>
+      <section className="languages">
+        {languageElements}
       </section>
       </div>
     </div>
