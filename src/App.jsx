@@ -40,6 +40,7 @@ const languageElements = languages.map(lang => {
       <section className="keyboard">
         {keyboard}
       </section>
+      <button className="new-game">New Game</button>
       </div>
     </div>
 
