@@ -12,8 +12,8 @@ const languageElements = languages.map(lang => {
   })
   const [currentWord, setWord] = useState(Array.from("Refactor"))
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  const keyboard = alphabet.split("").map((alpha,index) => (
-      <button key={index} >{alpha}</button>
+  const keyboard = alphabet.split("").map(alpha => (
+      <button key={alpha} >{alpha}</button>
   ))
     
   const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
