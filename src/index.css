@@ -99,7 +99,6 @@ header > p {
 
 .keyboard {
   display: flex;
-  max-width: 650px;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
