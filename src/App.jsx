@@ -11,8 +11,12 @@ const languageElements = languages.map(lang => {
       <span className="chip-language" style={style} key={lang.name}>{lang.name}</span>)
   })
   const [currentWord, setWord] = useState(Array.from("Refactor"))
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  const keyboard = alphabet.split("").map((alpha,index) => (
+      <button key={index} >{alpha}</button>
+  ))
     
-  const words = currentWord.map(w=> <span className="words">{w}</span>)
+  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
 
   return (
     <div>
@@ -32,6 +36,9 @@ const languageElements = languages.map(lang => {
       </section>
       <section className="words-container">
         {words}
+      </section>
+      <section className="keyboard">
+        {keyboard}
       </section>
       </div>
     </div>

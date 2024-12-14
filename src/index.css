@@ -29,10 +29,14 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+  
 }
 
 .container {
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header > h1 {
@@ -53,6 +57,7 @@ header > p {
   color: #F9F4DA;
   border-radius: 4px;
   padding: 6px;
+  width: 400px;
 }
 
 .languages {
@@ -85,4 +90,25 @@ header > p {
   background-color: #323232;
   padding: 6px 16px;
   border-bottom: 1px solid #F9F4DA;
+}
+
+.keyboard {
+  display: flex;
+  width: 500px;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 42px;
+}
+.keyboard > button {
+  color: #1E1E1E;
+  padding: 6px 12px;
+  border-radius: 0.2rem;
+  border: 1px solid #D7D7D7;
+  background-color: #FCBA29;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
