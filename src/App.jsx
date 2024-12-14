@@ -1,7 +1,10 @@
 import { languages } from "./languages"
 function App() {
 
-const languageElements = languages.map(lang => <span className="chip-language" style={{backgroundColor:lang.backgroundColor, color:lang.color} }  >{lang.name}</span>)
+const languageElements = languages.map(
+  lang => <span className="chip-language" 
+  style={{backgroundColor:lang.backgroundColor, color:lang.color} }  
+  >{lang.name}</span>)
 
   return (
     <div>
