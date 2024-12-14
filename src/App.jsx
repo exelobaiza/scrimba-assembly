@@ -1,4 +1,5 @@
 import { languages } from "./languages"
+import { useState } from "react"
 function App() {
 
 const languageElements = languages.map(lang => {
@@ -9,6 +10,9 @@ const languageElements = languages.map(lang => {
       return(
       <span className="chip-language" style={style} key={lang.name}>{lang.name}</span>)
   })
+  const [currentWord, setWord] = useState(Array.from("Refactor"))
+    
+  const words = currentWord.map(w=> <span className="words">{w}</span>)
 
   return (
     <div>
@@ -25,6 +29,9 @@ const languageElements = languages.map(lang => {
       </section>
       <section className="languages">
         {languageElements}
+      </section>
+      <section className="words-container">
+        {words}
       </section>
       </div>
     </div>
