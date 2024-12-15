@@ -12,12 +12,18 @@ const languageElements = languages.map(lang => {
   })
   const [currentWord, setWord] = useState(Array.from("Refactor"))
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  const keyboard = alphabet.split("").map(alpha => (
-      <button key={alpha} >{alpha}</button>
-  ))
-    
-  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
 
+  const keyboard = alphabet.split("").map(alpha => (
+      <button onClick={() => handleKeyboardClick(alpha)} key={alpha} >{alpha}</button>
+  ))
+  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
+  const [guessLetter, setGuessLetter] = useState([])
+
+  function handleKeyboardClick(letter) {
+    setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
+    console.log(guessLetter)
+  }
+  console.log(guessLetter)
   return (
     <div>
       <div className="container">
