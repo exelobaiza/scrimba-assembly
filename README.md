@@ -7,30 +7,25 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Available Scripts
+## 📜 Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint checks
 
-## Plugin Configuration
+## 🎨 Color Palette
 
-This project includes two official Vite plugins for React:
+- Background: #262626
+- Text: #D9D9D9
+- Accent: #FCBA29 (Keyboard buttons)
+- Success: #10A95B
+- Interactive: #11B5E5
 
-### [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
-- Uses Babel for Fast Refresh
-- Provides full support for React features
-- Recommended for projects requiring Babel transformations
-
-### [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
-- Uses SWC for Fast Refresh
-- Offers faster compilation speeds
-- Recommended for projects prioritizing build performance
-
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
+## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
