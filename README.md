@@ -1,11 +1,46 @@
-# React + Vite
+# Assembly: Endgame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A programming-themed word guessing game where players must save the programming world from Assembly! Built with React and Vite.
 
-Currently, two official plugins are available:
+## 🎮 Game Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Assembly: Endgame is an engaging word-guessing game where players must:
+- Guess programming-related words in under 8 attempts
+- Use the on-screen keyboard to make letter selections
+- Save the programming world from the clutches of Assembly language!
+
+## 🚀 Features
+
+- Interactive keyboard interface
+- Programming language theme with custom color chips
+- Visual feedback for correct/incorrect guesses
+- Modern, dark-mode UI design
+- Responsive layout for various screen sizes
+
+## 🛠️ Built With
+
+- React 18
+- Vite
+- CSS3 (with custom styling)
+- Hanken Grotesk font family
+
+## 🏃‍♂️ Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone [your-repository-url]
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
 
 ## 📜 Available Scripts
 
