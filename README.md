@@ -21,33 +21,8 @@ Assembly: Endgame is an engaging word-guessing game where players must:
 
 - React 18
 - Vite
-- CSS3 (with custom styling)
-- Hanken Grotesk font family
+- CSS
 
-## 🏃‍♂️ Getting Started
-
-1. Clone the repository:
-
-```bash
-git clone [your-repository-url]
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-## 📜 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint checks
 
 ## 🎨 Color Palette
 
