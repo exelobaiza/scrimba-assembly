@@ -1,6 +1,10 @@
 import { languages } from "./languages"
 import { useState } from "react"
 function App() {
+  const [currentWord, setWord] = useState(Array.from("Refactor"))
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
+  const [guessLetter, setGuessLetter] = useState([])
 
 const languageElements = languages.map(lang => {
   const style = {
@@ -10,14 +14,17 @@ const languageElements = languages.map(lang => {
       return(
       <span className="chip-language" style={style} key={lang.name}>{lang.name}</span>)
   })
-  const [currentWord, setWord] = useState(Array.from("Refactor"))
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-  const keyboard = alphabet.split("").map(alpha => (
-      <button onClick={() => handleKeyboardClick(alpha)} key={alpha} >{alpha}</button>
-  ))
-  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
-  const [guessLetter, setGuessLetter] = useState([])
+  const keyboard = alphabet.split("").map(alpha => {
+    const isGuessed = guessLetter.includes(alpha)
+    const isCorrect = isGuessed && currentWord.includes(alpha)
+    const style = {
+      backgroundColor: '#FCBA29' isCorrect ? "green" : "red",
+    }
+    return(
+      <button onClick={() => handleKeyboardClick(alpha)} key={alpha} style={style}>{alpha}</button>
+    )
+  })
 
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
