@@ -1,5 +1,7 @@
 import { languages } from "./languages"
 import { useState } from "react"
+import { clsx } from "clsx"
+
 function App() {
   const [currentWord, setWord] = useState(Array.from("Refactor"))
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -18,11 +20,13 @@ const languageElements = languages.map(lang => {
   const keyboard = alphabet.split("").map(alpha => {
     const isGuessed = guessLetter.includes(alpha)
     const isCorrect = isGuessed && currentWord.includes(alpha)
-    const style = {
-      backgroundColor: '#FCBA29' isCorrect ? "green" : "red",
-    }
+    const isWrong = isGuessed && !currentWord.includes(alpha)
+    const className = clsx({
+      correct: isCorrect,
+      wrong: isWrong
+    })
     return(
-      <button onClick={() => handleKeyboardClick(alpha)} key={alpha} style={style}>{alpha}</button>
+      <button onClick={() => handleKeyboardClick(alpha)} className={className} key={alpha}>{alpha}</button>
     )
   })
 

@@ -102,7 +102,8 @@ header > p {
   flex-wrap: wrap;
   justify-content: center;
 }
-.keyboard > button {
+
+section.keyboard > button {
   color: #1E1E1E;
   padding: 6px 12px;
   border-radius: 0.2rem;
@@ -113,6 +114,14 @@ header > p {
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+section.keyboard > button.correct {
+  background-color: #10A95B;
+}
+
+section.keyboard > button.wrong {
+  background-color: #EC5D49;
 }
 
 .keyboard > button:hover {
