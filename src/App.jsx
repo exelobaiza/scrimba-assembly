@@ -7,7 +7,9 @@ function App() {
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
   const [guessLetter, setGuessLetter] = useState([])
   const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
-  
+
+  const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
+  console.log(wrongGuessCount)
 
 const languageElements = languages.map(lang => {
   const style = {
@@ -34,7 +36,6 @@ const languageElements = languages.map(lang => {
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
   }
-  console.log(guessLetter)
   return (
     <div>
       <div className="container">
