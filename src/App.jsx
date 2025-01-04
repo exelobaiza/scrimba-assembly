@@ -3,10 +3,11 @@ import { useState } from "react"
 import { clsx } from "clsx"
 
 function App() {
-  const [currentWord, setWord] = useState(Array.from("Refactor"))
+  const [currentWord, setWord] = useState(Array.from("react"))
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  const words = currentWord.map(w=> <span key={w} className="words">{w}</span>)
   const [guessLetter, setGuessLetter] = useState([])
+  const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
+  
 
 const languageElements = languages.map(lang => {
   const style = {
@@ -32,7 +33,6 @@ const languageElements = languages.map(lang => {
 
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
-    console.log(guessLetter)
   }
   console.log(guessLetter)
   return (
@@ -55,7 +55,7 @@ const languageElements = languages.map(lang => {
         {words}
       </section>
       <section className="keyboard">
-        {keyboard}
+        {keyboard }
       </section>
       <button className="new-game">New Game</button>
       </div>
