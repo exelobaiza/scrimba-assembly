@@ -2,6 +2,17 @@ import { languages } from "./languages"
 import { useState } from "react"
 import { clsx } from "clsx"
 
+/**
+ * Goal: Add in the incorrect guesses mechanism to the game
+ * 
+ * Challenge: When mapping over the languages, determine how
+ * many of them have been "lost" and add the "lost" class if
+ * so.
+ * 
+ * Hint: use the wrongGuessCount combined with the index of
+ * the item in the array while inside the languages.map code
+ */
+
 function App() {
   const [currentWord, setWord] = useState(Array.from("react"))
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -9,7 +20,7 @@ function App() {
   const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
-  console.log(wrongGuessCount)
+  
 
 const languageElements = languages.map(lang => {
   const style = {
