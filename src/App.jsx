@@ -29,7 +29,7 @@ const languageElements = languages.map((lang, index) => {
     color: lang.color
   }
       return(
-      <span className={`chip-language  ${isLanguageLost ? ".lost" : ""}`} style={style} key={lang.name}>{lang.name}</span>)
+      <span className={`chip-language ${isLanguageLost ? "lost" : ""}`} style={style} key={lang.name}>{lang.name}</span>)
   })
 
   const keyboard = alphabet.split("").map(alpha => {
