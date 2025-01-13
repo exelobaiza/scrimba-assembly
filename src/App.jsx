@@ -20,15 +20,16 @@ function App() {
   const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
-  
+  console.log(wrongGuessCount)
 
-const languageElements = languages.map(lang => {
+const languageElements = languages.map((lang, index) => {
+  const isLanguageLost = wrongGuessCount > index
   const style = {
     backgroundColor: lang.backgroundColor,
     color: lang.color
   }
       return(
-      <span className="chip-language" style={style} key={lang.name}>{lang.name}</span>)
+      <span className={`chip-language  ${isLanguageLost ? ".lost" : ""}`} style={style} key={lang.name}>{lang.name}</span>)
   })
 
   const keyboard = alphabet.split("").map(alpha => {
