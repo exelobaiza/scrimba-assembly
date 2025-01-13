@@ -24,13 +24,6 @@ Assembly: Endgame is an engaging word-guessing game where players must:
 - CSS
 
 
-## 🎨 Color Palette
-
-- Background: #262626
-- Text: #D9D9D9
-- Accent: #FCBA29 (Keyboard buttons)
-- Success: #10A95B
-- Interactive: #11B5E5
 
 ## 🤝 Contributing
 
