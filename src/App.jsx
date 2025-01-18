@@ -57,7 +57,7 @@ const languageElements = languages.map((lang, index) => {
       </header>
       <section>
         <div className="status-container">
-          
+          <h2>You win!</h2>
           <p>Well done! 🎉</p>
         </div>
       </section>
