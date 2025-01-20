@@ -147,7 +147,7 @@ section.keyboard > button.wrong {
   cursor: pointer;
 }
 
-button.new-game {
+.new-game {
   background-color: #11B5E5;
   border: 1px solid #D7D7D7;
   color: #1E1E1E;
@@ -157,4 +157,7 @@ button.new-game {
   display: block;
   margin-inline: auto;
   cursor: pointer;
+}
+.new-display {
+  display: none;
 }
