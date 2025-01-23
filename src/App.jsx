@@ -9,9 +9,12 @@ function App() {
   const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
-  const isGameOver = wrongGuessCount >= 8 ? "true" : "false" 
-  console.log(isGameOver)
-const languageElements = languages.map((lang, index) => {
+  const isGameLost = wrongGuessCount >= languages.length - 1 
+  const isGameWon = currentWord.every(letter => guessLetter.includes(letter))
+  const isGameOver = isGameLost || isGameWon
+  console.log(isGameLost)
+
+  const languageElements = languages.map((lang, index) => {
   const isLanguageLost = wrongGuessCount > index
   const style = {
     backgroundColor: lang.backgroundColor,
@@ -59,7 +62,7 @@ const languageElements = languages.map((lang, index) => {
       <section className="keyboard">
         {keyboard }
       </section>
-      <button className={`${isGameOver ? "new-display" : "new-game"}`}>New Game</button>
+      { isGameOver && <button className="new-game">New Game</button>}
       </div>
     </div>
 

@@ -158,6 +158,3 @@ section.keyboard > button.wrong {
   margin-inline: auto;
   cursor: pointer;
 }
-.new-display {
-  display: none;
-}
