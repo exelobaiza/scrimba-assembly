@@ -36,6 +36,10 @@ function App() {
       <button onClick={() => handleKeyboardClick(alpha)} className={className} key={alpha}>{alpha}</button>
     )
   })
+  const gameStatusClass = clsx("status-container", {
+    won: isGameWon,
+    lost: isGameLost
+})
 
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
@@ -47,11 +51,23 @@ function App() {
         <h1>Assembly: Endgame</h1>
         <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
       </header>
-      <section>
-        <div className={`status-container ${isGameWon ? "win" : "lost"}`}>
-          <h2>{ isGameWon && "You win!" || isGameLost && "Game over!" }</h2>
-          <p>{ isGameWon && "Well done! 🎉" || isGameLost && "You lose! Better start learning Assembly 😭" }</p>
-        </div>
+      <section className={gameStatusClass}>
+      {isGameOver ? (
+                    isGameWon ? (
+                        <>
+                            <h2>You win!</h2>
+                            <p>Well done! 🎉</p>
+                        </>
+                    ) : (
+                        <>
+                            <h2>Game over!</h2>
+                            <p>You lose! Better start learning Assembly 😭</p>
+                        </>
+                    )
+                ) : (
+                        null
+                    )
+                }
       </section>
       <section className="languages">
         {languageElements}

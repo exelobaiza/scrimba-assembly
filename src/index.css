@@ -58,18 +58,15 @@ header > p {
 }
 
 .status-container {
-  display: none;
   color: #F9F4DA;
   border-radius: 4px;
   padding: 6px;
   width: 400px;
 }
-.status-container.win {
-  display: block;
+.status-container.won {
   background-color: #10A95B;
 }
 .status-container.lost {
-  display: block;
   background-color: #BA2A2A;
 }
 
