@@ -48,9 +48,9 @@ function App() {
         <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
       </header>
       <section>
-        <div className="status-container">
-          <h2>You win!</h2>
-          <p>Well done! 🎉</p>
+        <div className={`status-container ${isGameWon ? "win" : "lost"}`}>
+          <h2>{ isGameWon && "You win!" || isGameLost && "Game over!" }</h2>
+          <p>{ isGameWon && "Well done! 🎉" || isGameLost && "You lose! Better start learning Assembly 😭" }</p>
         </div>
       </section>
       <section className="languages">
