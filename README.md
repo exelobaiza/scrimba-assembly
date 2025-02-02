@@ -19,6 +19,6 @@ Assembly: Endgame is an engaging word-guessing game where players must:
 
 ## 🛠️ Built With
 
-- React 18
+- React
 - Vite
 - CSS
