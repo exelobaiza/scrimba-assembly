@@ -1,6 +1,7 @@
 import { languages } from "./languages"
 import { useState } from "react"
 import { clsx } from "clsx"
+import { getFarewellText } from "./utils"
 
 function App() {
   const [currentWord, setWord] = useState(Array.from("react"))
@@ -12,7 +13,9 @@ function App() {
   const isGameLost = wrongGuessCount >= languages.length - 1 
   const isGameWon = currentWord.every(letter => guessLetter.includes(letter))
   const isGameOver = isGameLost || isGameWon
-  console.log(isGameLost)
+  const lastGuessedLetter = guessLetter[guessLetter.length - 1]
+  const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
+  console.log(isLastGuessIncorrect)
 
   const languageElements = languages.map((lang, index) => {
   const isLanguageLost = wrongGuessCount > index
@@ -30,7 +33,7 @@ function App() {
     const isWrong = isGuessed && !currentWord.includes(alpha)
     const className = clsx({
       correct: isCorrect,
-      wrong: isWrong
+      wrong: isWrong,
     })
     return(
       <button onClick={() => handleKeyboardClick(alpha)} className={className} key={alpha}>{alpha}</button>
@@ -38,8 +41,34 @@ function App() {
   })
   const gameStatusClass = clsx("status-container", {
     won: isGameWon,
-    lost: isGameLost
+    lost: isGameLost,
+    farewell: !isGameOver && isLastGuessIncorrect,
 })
+  function renderGameStatus() {
+    if (!isGameOver && isLastGuessIncorrect) {
+        return (
+          <p className="farewell-message">
+          {getFarewellText(languages[wrongGuessCount - 1].name)}
+          </p>
+      )
+    }
+
+    if (isGameWon) {
+        return (
+            <>
+                <h2>You win!</h2>
+                <p>Well done! 🎉</p>
+            </>
+        )
+    } if (isGameLost) {
+        return (
+            <>
+                <h2>Game over!</h2>
+                <p>You lose! Better start learning Assembly 😭</p>
+            </>
+        )
+    }
+}
 
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
@@ -52,22 +81,7 @@ function App() {
         <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
       </header>
       <section className={gameStatusClass}>
-      {isGameOver ? (
-                    isGameWon ? (
-                        <>
-                            <h2>You win!</h2>
-                            <p>Well done! 🎉</p>
-                        </>
-                    ) : (
-                        <>
-                            <h2>Game over!</h2>
-                            <p>You lose! Better start learning Assembly 😭</p>
-                        </>
-                    )
-                ) : (
-                        null
-                    )
-                }
+        {renderGameStatus()}
       </section>
       <section className="languages">
         {languageElements}
