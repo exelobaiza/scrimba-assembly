@@ -38,9 +38,9 @@ function App() {
     return(
       <button onClick={() => handleKeyboardClick(alpha)} 
       className={className} 
-      disabled={isGameOver || isGuessed}
-      key={alpha}>{alpha}
-      
+      disabled={isGameOver}
+      key={alpha}>
+        {alpha}
       </button>
     )
   })
