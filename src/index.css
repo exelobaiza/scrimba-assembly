@@ -157,6 +157,11 @@ section.keyboard > button.wrong {
   background-color: #EC5D49;
 }
 
+section.keyboard > button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .keyboard > button:hover {
   background-color: #FCBA29;
   color: #1E1E1E;

@@ -33,10 +33,15 @@ function App() {
     const isWrong = isGuessed && !currentWord.includes(alpha)
     const className = clsx({
       correct: isCorrect,
-      wrong: isWrong,
+      wrong: isWrong
     })
     return(
-      <button onClick={() => handleKeyboardClick(alpha)} className={className} key={alpha}>{alpha}</button>
+      <button onClick={() => handleKeyboardClick(alpha)} 
+      className={className} 
+      disabled={isGameOver || isGuessed}
+      key={alpha}>{alpha}
+      
+      </button>
     )
   })
   const gameStatusClass = clsx("status-container", {
