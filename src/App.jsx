@@ -1,17 +1,17 @@
 import { languages } from "./languages"
 import { useState } from "react"
 import { clsx } from "clsx"
-import { getFarewellText } from "./utils"
+import { getFarewellText, getWords } from "./utils"
 
 function App() {
-  const [currentWord, setWord] = useState(Array.from("react"))
+  const [currentWord, setWord] = useState(getWords())
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
   const [guessLetter, setGuessLetter] = useState([])
-  const words = currentWord.map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
+  const words = currentWord.split('').map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
   const isGameLost = wrongGuessCount >= languages.length - 1 
-  const isGameWon = currentWord.every(letter => guessLetter.includes(letter))
+  const isGameWon = currentWord.split('').every(letter => guessLetter.includes(letter))
   const isGameOver = isGameLost || isGameWon
   const lastGuessedLetter = guessLetter[guessLetter.length - 1]
   const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
