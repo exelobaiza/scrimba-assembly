@@ -78,6 +78,10 @@ function App() {
   function handleKeyboardClick(letter) {
     setGuessLetter(prevLetter => prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
   }
+  function newGame() {
+    setWord(getWords())
+    setGuessLetter([])
+  }
   return (
     <div>
       <div className="container">
@@ -97,7 +101,7 @@ function App() {
       <section className="keyboard">
         {keyboard }
       </section>
-      { isGameOver && <button className="new-game">New Game</button>}
+      { isGameOver && <button className="new-game" onClick={newGame}>New Game</button>}
       </div>
     </div>
 
