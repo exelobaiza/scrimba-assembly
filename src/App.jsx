@@ -2,11 +2,13 @@ import { languages } from "./languages"
 import { useState } from "react"
 import { clsx } from "clsx"
 import { getFarewellText, getWords } from "./utils"
+import Confetti from "react-confetti"
 
 function App() {
   const [currentWord, setWord] = useState(getWords())
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
   const [guessLetter, setGuessLetter] = useState([])
+  console.log(currentWord)
   
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
@@ -112,6 +114,7 @@ function App() {
       </section>
       { isGameOver && <button className="new-game" onClick={newGame}>New Game</button>}
       </div>
+      { isGameWon && <Confetti />}
     </div>
 
   )
