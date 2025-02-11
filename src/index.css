@@ -110,7 +110,7 @@ header > p {
   border-radius: 0.2rem;
 }
 
-.words-container {
+section.words {
   display: flex;
   flex-direction: row;
   gap: 2px;
@@ -118,7 +118,7 @@ header > p {
   justify-content: center;
 }
 
-.words {
+section.words > span {
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -126,6 +126,10 @@ header > p {
   height: 40px;
   width: 40px;
   border-bottom: 1px solid #F9F4DA;
+}
+
+section.words > span.missed-letter {
+  color: #EC5D49;
 }
 
 

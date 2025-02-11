@@ -7,7 +7,7 @@ function App() {
   const [currentWord, setWord] = useState(getWords())
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
   const [guessLetter, setGuessLetter] = useState([])
-  const words = currentWord.split('').map(word=> <span key={word} className="words">{guessLetter.includes(word) ? word : ""}</span>)
+  
 
   const wrongGuessCount = guessLetter.filter(letter => !currentWord.includes(letter)).length
   const isGameLost = wrongGuessCount >= languages.length - 1 
@@ -15,7 +15,16 @@ function App() {
   const isGameOver = isGameLost || isGameWon
   const lastGuessedLetter = guessLetter[guessLetter.length - 1]
   const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
-  console.log(isLastGuessIncorrect)
+
+  const words = currentWord.split('').map(word=> {
+        const shouldReveralLetter = isGameLost || guessLetter.includes(word)
+        const letterClassName = clsx(
+        isGameLost && !guessLetter.includes(word) && "missed-letter"
+      )
+          return(
+          <span key={word} className={letterClassName}>{shouldReveralLetter ? word : "" }</span>
+        )
+        })
 
   const languageElements = languages.map((lang, index) => {
   const isLanguageLost = wrongGuessCount > index
@@ -95,7 +104,7 @@ function App() {
       <section className="languages">
         {languageElements}
       </section>
-      <section className="words-container">
+      <section className="words">
         {words}
       </section>
       <section className="keyboard">
